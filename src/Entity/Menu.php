@@ -2,12 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\DishRepository;
-use Doctrine\DBAL\Types\Types;
+use App\Repository\MenuRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: DishRepository::class)]
-class Dish
+#[ORM\Entity(repositoryClass: MenuRepository::class)]
+class Menu
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,14 +16,11 @@ class Dish
     #[ORM\Column(length: 60)]
     private ?string $Name = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $Description = null;
-
     #[ORM\Column(nullable: true)]
     private ?float $Price = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $picture = null;
+    #[ORM\Column(length: 255)]
+    private ?string $Picture = null;
 
     public function getId(): ?int
     {
@@ -39,18 +35,6 @@ class Dish
     public function setName(string $Name): self
     {
         $this->Name = $Name;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->Description;
-    }
-
-    public function setDescription(?string $Description): self
-    {
-        $this->Description = $Description;
 
         return $this;
     }
