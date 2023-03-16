@@ -19,14 +19,15 @@ class DishType extends AbstractType
             ->add('Description')
             ->add('Price')
             ->add('Picture', FileType::class, [
-                'label' => 'image à choisir',
                 'mapped' => false,
+                'label' => 'image à choisir',
                 'constraints' => [
                     new File([                        
                     'maxSize' => '4096k',
                     'mimeTypes' => [
                         'image/png',
                         'image/jpg',
+                        'image/jpeg',
                     ],
                     'mimeTypesMessage' => 'Il faut une image valide',
                     ])

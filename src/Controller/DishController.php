@@ -10,6 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\String\Slugger\SluggerInterface;
+
 #[Route('/dish')]
 class DishController extends AbstractController
 {
@@ -29,6 +33,12 @@ class DishController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $Picture */
+            
+            //Recuperation de l'image utilisateur et upload dans un dossier
+
+            //Sauvegarder le chemin de l'image en base
+
             $dishRepository->save($dish, true);
 
             return $this->redirectToRoute('app_dish_index', [], Response::HTTP_SEE_OTHER);
