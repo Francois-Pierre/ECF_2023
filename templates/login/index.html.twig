@@ -1,9 +1,23 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Connexion Quai Antique{% endblock %}
+
 {% block body %}
+    <h1>Rappelez-nous votre nom ?</h1>
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Accueil</a>
+            <a class="nav-item nav-link" href="menu">La carte</a>
+            <a class="nav-item nav-link" href="booking">Réservation</a>
+            <a class="nav-item nav-link active" href="login">Se connecter</a>
+          </div>
+        </div>
+    </nav>
 
     <form action="{{ path('app_login') }}" method="post">
         <label for="username">Email:</label>
@@ -11,7 +25,7 @@
 
         <label for="password">Mot de passe:</label>
         <input type="password" id="password" name="_password">
-        <input type="hidden" name="_csrf_token" value="{{ _csrf_token('authenticate) }}">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         <input type="hidden" name="_target_path" value="{{ path('app_main')}}">
 

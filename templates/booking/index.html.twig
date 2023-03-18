@@ -1,15 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BookingController!{% endblock %}
+{% block title %}Votre réservation{% endblock %}
 
 {% block body %}
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Réservez votre table :</h1>
 
-    This friendly message is coming from:
-    <ul class="fre">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Accueil</span></a>
+            <a class="nav-item nav-link" href="menu">La carte</a>
+            <a class="nav-item nav-link active" href="booking">Réservation</a>
+            <a class="nav-item nav-link" href="login">Se connecter</a>
+          </div>
+        </div>
+    </nav>
+
+    <ul>
         <li>Your controller at <code><a href="{{ 'C:/Users/letig/Desktop/Studi/ECF_2023_JOUBAUD/src/Controller/BookingController.php'|file_link(0) }}">src/Controller/BookingController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/Users/letig/Desktop/Studi/ECF_2023_JOUBAUD/templates/booking/index.html.twig'|file_link(0) }}">templates/booking/index.html.twig</a></code></li>
+        <li><p>Ce site a été réalisé dans le cadre d'une évaluation</p></li>
+        <li>Son propriétaire est possible à contacter via ce mail => dracofanfan@hotmail.com</li>
+        <li>Toutes les images utilisés sont en sources libres et proviennent de la plateforme Pexel</li>
+        <li>Le logo "QA" a été créé spécialement et est libre de droits</li>
+        <li>Merci de signaler tout problèmes et/ou réclamations au propriétaire du site</li>
     </ul>
 </div>
 {% endblock %}

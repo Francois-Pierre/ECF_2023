@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Accueil Quai Antique{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/letig/Desktop/Studi/ECF_2023_JOUBAUD/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/letig/Desktop/Studi/ECF_2023_JOUBAUD/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+  <div>
+  <img src="C:\Users\letig\Desktop\Studi\ECF_2023_JOUBAUD\templates\Images\logo.png" alt="logo QA">
+  </div>
+<h1>Quai Antique</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Accueil</a>
+            <a class="nav-item nav-link" href="menu">La carte</a>
+            <a class="nav-item nav-link" href="booking">Réservation</a>
+            <a class="nav-item nav-link" href="login">Se connecter</a>
+          </div>
+        </div>
+    </nav>
+    <img src="" alt="logo QA">
+<div style="width: 200px; height: 200px; background-color: red ;">
+<img style="width: 200px
+;" src="logo.png" alt=""></div>
 </div>
 {% endblock %}

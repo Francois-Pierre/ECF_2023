@@ -9,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -34,11 +33,30 @@ class DishController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $Picture */
-            
-            //Recuperation de l'image utilisateur et upload dans un dossier
+           
+            $PictureFile = $form->get('Picture')->getData();
 
-            //Sauvegarder le chemin de l'image en base
+            // this condition is needed because the 'Picture' field is not required
+            // so the file must be processed only when a file is uploaded
+            if ($PictureFile) {
+                $originalFilename = pathinfo($PictureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = uniqid().'.'.$PictureFile->guessExtension();
 
+                // Move the file to the directory where Pictures are stored
+                try {
+                    $PictureFile->move(
+                        $this->getParameter('Pictures_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'PictureFilename' property to store the PDF file name
+                // instead of its contents
+                $dish->setPicture($newFilename);
+            }
+           
             $dishRepository->save($dish, true);
 
             return $this->redirectToRoute('app_dish_index', [], Response::HTTP_SEE_OTHER);

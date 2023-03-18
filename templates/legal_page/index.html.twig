@@ -1,10 +1,28 @@
-{% extends 'base.html.twig' %
+{% extends 'base.html.twig' %}
 
-{% block title %}Hello LegalPageController!{% endblock %}
+{% block title %}Mentions légales{% endblock %}
 
 {% block body %}
-<h1></h1>
-<p>Mentions légales</p>
+<div class="example-wrapper">
+    <h1>Mentions légales</h1>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Accueil</a>
+            <a class="nav-item nav-link" href="menu">La carte</a>
+            <a class="nav-item nav-link" href="booking">Réservation</a>
+            <a class="nav-item nav-link" href="login">Se connecter</a>
+          </div>
+        </div>
+    </nav>
 
+    <ul>
+        <li>Ce site a été réalisé dans le cadre d'une évaluation</li>
+        <li>Son propriétaire est possible à contacter via ce mail => dracofanfan@hotmail.com</li>
+        <li>Toutes les images utilisés sont en sources libres et proviennent de la plateforme Pexel</li>
+        <li>Le logo "QA" a été créé spécialement et est libre de droits</li>
+        <li>Merci de signaler tout problèmes et/ou réclamations au propriétaire du site</li>
+    </ul>
+</div>
 {% endblock %}

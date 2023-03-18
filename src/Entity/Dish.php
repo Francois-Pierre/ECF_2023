@@ -24,7 +24,7 @@ class Dish
     private ?float $Price = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $picture = null;
+    private ?string $Picture = null;
 
     public function getId(): ?int
     {

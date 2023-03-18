@@ -19,8 +19,9 @@ class DishType extends AbstractType
             ->add('Description')
             ->add('Price')
             ->add('Picture', FileType::class, [
-                'mapped' => false,
                 'label' => 'image à choisir',
+                'mapped' => false,
+                'required' => false,
                 'constraints' => [
                     new File([                        
                     'maxSize' => '4096k',
